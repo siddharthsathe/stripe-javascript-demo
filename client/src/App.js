@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Footer } from "./components/atoms/footer";
+import Header from "./components/atoms/header";
+import { Checkout } from "./components/atoms/checkout";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
+  const stripeInstance = loadStripe(
+    process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Header />
+      <Elements stripe={stripeInstance}>
+        <Checkout />
+      </Elements>
+      <Footer />
+    </React.Fragment>
   );
 }
 
