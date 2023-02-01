@@ -13,7 +13,7 @@ export const CheckoutForm = () => (
           placeholder="Email (For Order Confirmation)"
         />
       </FormGroup>
-      <Row form>
+      <Row>
         <Col md={6}>
           <FormGroup>
             <Input type="text" name="first_name" placeholder="First name" />
@@ -40,7 +40,7 @@ export const CheckoutForm = () => (
       <FormGroup>
         <Input type="text" name="city" placeholder="City" />
       </FormGroup>
-      <Row form>
+      <Row>
         <Col md={5}>
           <FormGroup className="dropdown-container">
             <Label for="country">Country</Label>
