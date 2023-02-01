@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Col, Row, Form, FormGroup, Input, Label } from "reactstrap";
 
 export const CheckoutForm = () => (
   <Form className="container-fluid contact-info-container">
@@ -9,75 +9,66 @@ export const CheckoutForm = () => (
       <FormGroup>
         <Input
           type="email"
-          name="co_email"
-          id="coContactEmail"
+          name="email"
           placeholder="Email (For Order Confirmation)"
         />
       </FormGroup>
-      <Row form>
+      <Row>
         <Col md={6}>
           <FormGroup>
-            <Input
-              type="text"
-              name="co_first_name"
-              id="coFirstName"
-              placeholder="First name"
-            />
+            <Input type="text" name="first_name" placeholder="First name" />
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Input
-              type="text"
-              name="co_last_name"
-              id="coLastName"
-              placeholder="Last name"
-            />
+            <Input type="text" name="last_name" placeholder="Last name" />
           </FormGroup>
         </Col>
       </Row>
       <FormGroup>
-        <Input
-          type="text"
-          name="co_address"
-          id="coAddress"
-          placeholder="Address"
-        />
+        <Input type="text" name="address" placeholder="Address" />
       </FormGroup>
       <FormGroup>
         <div className="toggle-container address2-text">
           <Input
             type="text"
-            name="co_address2"
-            id="coAddress2"
+            name="address"
             placeholder="Apartment, suite, etc. (optional)"
           />
         </div>
       </FormGroup>
       <FormGroup>
-        <Input type="text" name="co_city" id="coCity" placeholder="City" />
+        <Input type="text" name="city" placeholder="City" />
       </FormGroup>
-      <Row form>
+      <Row>
         <Col md={5}>
           <FormGroup className="dropdown-container">
-            <Label for="coCountry">Country</Label>
-            {/* <CountryOptions /> */}
+            <Label for="country">Country</Label>
+            <Input className="custom-select" type="select" name="country">
+              <option>SELECT</option>
+              <option defaultValue="selected" value="United States">
+                United States
+              </option>
+            </Input>
           </FormGroup>
         </Col>
         <Col md={4}>
           <FormGroup className="dropdown-container">
-            <Label for="coState">State</Label>
-            {/* <StateOptions /> */}
+            <Label for="state">State</Label>
+            <Input className="custom-select" type="select" name="state">
+              <option>SELECT</option>
+              <option value="TX">Texas</option>
+              <option value="NY">New york</option>
+            </Input>
           </FormGroup>
         </Col>
         <Col md={3}>
           <FormGroup>
-            <Label for="coZip">Zip</Label>
+            <Label for="zipcode">Zip</Label>
             <Input
               className="zip-input"
               type="text"
-              name="co_zipcode"
-              id="coZipCode"
+              name="zipcode"
               placeholder="ZIP Code"
             />
           </FormGroup>
@@ -85,14 +76,12 @@ export const CheckoutForm = () => (
       </Row>
       <FormGroup>
         <Input
-          type="phone"
-          name="co_phone"
+          type="number"
+          max={10}
+          name="phone"
           placeholder="Mobile number (For Shipping Updates)"
         />
       </FormGroup>
-      <div className="button-right">
-        <Button color="primary">Save</Button>
-      </div>
     </div>
   </Form>
 );
