@@ -4,6 +4,7 @@ import Header from "./components/atoms/header";
 import { Checkout } from "./components/atoms/checkout";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const stripeInstance = loadStripe(
@@ -11,6 +12,7 @@ function App() {
   );
   return (
     <React.Fragment>
+      <Toaster />
       <Header />
       <Elements stripe={stripeInstance}>
         <Checkout />

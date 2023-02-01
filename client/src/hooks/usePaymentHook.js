@@ -3,7 +3,10 @@ import { useState } from "react";
 
 export const usePaymentHook = () => {
   const [isPaymentProcessing, setIsProcessing] = useState(false);
-  const [paymentStatus, setPaymentStatus] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState({
+    error: false,
+    initiated: false,
+  });
   const capturePayment = async (stripeRef, elementsRef, total) => {
     try {
       // Step 1 - Create a payment method in Stripe
@@ -33,11 +36,12 @@ export const usePaymentHook = () => {
       const paymentDetail = await stripeRef.confirmCardPayment(clientSecret, {
         payment_method: paymentMethod.id,
       });
-      setPaymentStatus(true);
+      setPaymentStatus({ error: false, initiated: true });
       setIsProcessing(false);
       return paymentDetail;
     } catch (error) {
       setIsProcessing(false);
+      setPaymentStatus({ error: true, initiated: true });
     }
   };
   return {

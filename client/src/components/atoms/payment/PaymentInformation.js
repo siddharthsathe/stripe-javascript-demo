@@ -1,5 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { Form } from "reactstrap";
 import { usePaymentHook } from "../../../hooks/usePaymentHook";
 import { Button } from "../button";
 
@@ -17,9 +19,12 @@ export const PaymentInformation = () => {
     usePaymentHook();
 
   useEffect(() => {
-    if (paymentStatus) {
-      alert("Payment captured successfully!");
-      window.location.reload();
+    if (paymentStatus.initiated) {
+      if (paymentStatus.error) {
+        toast.error("An error occured, please check logs!");
+      } else {
+        toast.success("Payment captured successfully!");
+      }
     }
   }, [paymentStatus]);
 
@@ -52,7 +57,7 @@ export const PaymentInformation = () => {
   };
 
   return (
-    <>
+    <Form className="container-fluid contact-info-container">
       <h2 className="mb-3">Payment Information</h2>
       <CardElement onChange={handleChange} />
       <p>{cardInput?.message}</p>
@@ -62,6 +67,6 @@ export const PaymentInformation = () => {
         isDisabled={isButtonDisabled()}
         submitCallbackFn={paymentInit}
       />
-    </>
+    </Form>
   );
 };
