@@ -13,23 +13,16 @@ function Header() {
   return (
     <Navbar className="navbar-container" color="light" light expand="md">
       <NavbarBrand href="/">
-        <img className="img-fluid" src={codeLogo} alt="" /> Checkout Form
+        <img className="img-fluid" src={codeLogo} alt="" /> Stripe checkout demo
       </NavbarBrand>
-      <Collapse navbar>
+      <Collapse navbar className="flex-grow-0">
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink href="#" target="_blank">
-              Portfolio
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#" target="_blank">
+            <NavLink
+              href="https://github.com/siddharthsathe/stripe-javascript-demo"
+              target="_blank"
+            >
               GitHub
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#" target="_blank">
-              Contact
             </NavLink>
           </NavItem>
         </Nav>
