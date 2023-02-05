@@ -16,9 +16,9 @@ export const Checkout = () => {
           <Col className="right-col-container pb-4" md="6">
             <CartDetails
               itemCount={2}
-              subTotal={111.99}
+              subTotal={249.98}
               taxes={9.99}
-              orderTotal={1000}
+              orderTotal={259.97}
             />
           </Col>
         </Row>

@@ -25,7 +25,7 @@ export const CartDetails = ({ itemCount, subTotal, orderTotal, taxes }) => (
           </Col>
           <Col xs="3">
             <div className="conatiner-fluid">
-              <h6>$38.50</h6>
+              <h6>$49.99</h6>
             </div>
           </Col>
         </Row>
@@ -41,7 +41,7 @@ export const CartDetails = ({ itemCount, subTotal, orderTotal, taxes }) => (
           </Col>
           <Col xs="3">
             <div className="conatiner-fluid">
-              <h6>$72.92</h6>
+              <h6>$199.99</h6>
             </div>
           </Col>
         </Row>
